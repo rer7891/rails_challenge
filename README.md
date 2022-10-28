@@ -1,24 +1,48 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Set Up
 
-Things you may want to cover:
+1. `bundle install`
+2. `rails db:create`
+3. `rails db:migrate`
+4. `rails db:seed`
 
-* Ruby version
+# Code Exercise
 
-* System dependencies
+## Checking In
+A user should be able to visit `/rails_challenge/check_in`
+and see a form to check in to an event.
+The form should have the following fields
+    - name
+    - email
+    - spell
 
-* Configuration
+The email should be validated to end in `.com`
+The house should be a drop down that includes all the spell names from the following endpoint: https://hp-api.herokuapp.com/api/spells
 
-* Database creation
+## Requirements
 
-* Database initialization
+A user should be able to check in multiple times but not with the same spell chosen more than once.
 
-* How to run the test suite
+## Exposing an endpoint
 
-* Services (job queues, cache servers, search engines, etc.)
+A user should be able to visit `/rails_challenge/v1/check_in?name=Becky`
+and should receive a json response with all checkins associated with that user
 
-* Deployment instructions
+## Example response:
+```
+[
+    {
+        "name": "Becky",
+        "email": "becky@gmail.com",
+        "spell": "Furnunculus Curse"
+    },
+    {
+        "name": "Becky",
+        "email": "becky@gmail.com",
+        "spell": "Geminio"
+    }
+]
+```
 
-* ...
+
